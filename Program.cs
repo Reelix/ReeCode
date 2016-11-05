@@ -13,7 +13,7 @@ namespace ReeCodeDemo
             List<double> medianList = new List<double>() { 1, 2, 3, 4, 5 };
             Console.WriteLine(medianList.Median()); // 3
 
-            // AreAlLFactorsOf
+            // AreAllFactorsOf
             List<int> factorsList = new List<int>() { 2, 5, 10 };
             Console.WriteLine(factorsList.AreAllFactorsOf(20)); // True
 
