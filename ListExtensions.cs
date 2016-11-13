@@ -7,18 +7,6 @@ namespace ReeCode
     public static class ListExtensions
     {
         /// <summary>
-        /// Finds the Median value of a list
-        /// </summary>
-        /// <param name="inputList"></param>
-        /// <returns>The Median value</returns>
-        public static double Median(this List<double> inputList)
-        {
-            double[] xs = inputList.ToArray();
-            Array.Sort(xs);
-            return xs[xs.Length / 2];
-        }
-
-        /// <summary>
         /// Checks if all values in the list are factors of a number
         /// </summary>
         /// <param name="inputList"></param>
@@ -36,6 +24,12 @@ namespace ReeCode
             return true;
         }
 
+        /// <summary>
+        /// Checks if a List contains any letters from another List
+        /// </summary>
+        /// <param name="inputList"></param>
+        /// <param name="checkList"></param>
+        /// <returns>True / False</returns>
         public static bool ContainsAnyLettersFrom(this List<char> inputList, List<char> checkList)
         {
             if (inputList.Intersect(checkList).Any())
@@ -46,6 +40,18 @@ namespace ReeCode
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Finds the Median value of a list
+        /// </summary>
+        /// <param name="inputList"></param>
+        /// <returns>The Median value</returns>
+        public static double Median(this List<double> inputList)
+        {
+            double[] xs = inputList.ToArray();
+            Array.Sort(xs);
+            return xs[xs.Length / 2];
         }
     }
 }
