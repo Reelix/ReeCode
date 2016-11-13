@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ReeCode
 {
@@ -33,6 +34,18 @@ namespace ReeCode
                 }
             }
             return true;
+        }
+
+        public static bool ContainsAnyLettersFrom(this List<char> inputList, List<char> checkList)
+        {
+            if (inputList.Intersect(checkList).Any())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
