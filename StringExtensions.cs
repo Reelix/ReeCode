@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace ReeCode
 {
@@ -64,6 +65,66 @@ namespace ReeCode
         {
             List<char> charList = inputString.Select(x => x).ToList();
             return charList;
+        }
+
+        /// <summary>
+        /// Converts a string to Base64
+        /// </summary>
+        /// <param name="inputString"></param>
+        public static string ToBase64(this string inputString)
+        {
+            var plainTextBytes = Encoding.UTF8.GetBytes(inputString);
+            return Convert.ToBase64String(plainTextBytes);
+        }
+
+        /// <summary>
+        /// Converts a Base64 encoded string to plain text
+        /// </summary>
+        /// <param name="inputString"></param>
+        /// <returns></returns>
+        public static string FromBase64(this string inputString)
+        {
+            var base64EncodedBytes = Convert.FromBase64String(inputString);
+            return Encoding.UTF8.GetString(base64EncodedBytes);
+        }
+        /// <summary>
+        /// Encodes a string with the ROT13 Cipher
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        // Taken from https://www.dotnetperls.com/rot13
+        public static string ToROT13(this string input)
+        {
+            char[] array = input.ToCharArray();
+            for (int i = 0; i < array.Length; i++)
+            {
+                int number = (int)array[i];
+
+                if (number >= 'a' && number <= 'z')
+                {
+                    if (number > 'm')
+                    {
+                        number -= 13;
+                    }
+                    else
+                    {
+                        number += 13;
+                    }
+                }
+                else if (number >= 'A' && number <= 'Z')
+                {
+                    if (number > 'M')
+                    {
+                        number -= 13;
+                    }
+                    else
+                    {
+                        number += 13;
+                    }
+                }
+                array[i] = (char)number;
+            }
+            return new string(array);
         }
     }
 }

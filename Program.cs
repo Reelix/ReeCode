@@ -21,12 +21,11 @@ namespace ReeCodeDemo
             List<char> charListC = new List<char> { 'g', 'h', 'b' };
             Console.WriteLine("ContainsAnyLettersFrom - Example 1: " + charListA.ContainsAnyLettersFrom(charListB)); // False
             Console.WriteLine("ContainsAnyLettersFrom - Example 2: " + charListA.ContainsAnyLettersFrom(charListC)); // True
-            Console.WriteLine();
 
             // Median
             List<double> medianList = new List<double>() { 1, 2, 3, 4, 5 };
             Console.WriteLine("Median - Example 1: " + medianList.Median()); // 3
-
+            Console.WriteLine();
 
 
             // StringExtensions.cs
@@ -53,6 +52,15 @@ namespace ReeCodeDemo
             string someString = "Hello World";
             List<char> charList = someString.ToCharList();
             Console.WriteLine("ToCharList - Example 1: " + charList.Count); // 11
+
+            // ToBase64
+            Console.WriteLine("Base64Encode: " + "Hello World!!".ToBase64());
+
+            // FromBase64
+            Console.WriteLine("Base64Decode: " + "SGVsbG8gV29ybGQhIQ==".FromBase64()); // Hello World!!
+
+            // ToROT13
+            Console.WriteLine("ROT13: " + "Uryyb Jbeyq!".ToROT13()); // Hello World!
             Console.ReadLine();
         }
     }
