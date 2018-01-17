@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ReeCode;
+using System.Net;
 
 namespace ReeCodeDemo
 {
@@ -61,6 +62,19 @@ namespace ReeCodeDemo
 
             // ToROT13
             Console.WriteLine("ROT13: " + "Uryyb Jbeyq!".ToROT13()); // Hello World!
+
+            // ToSHA1
+            Console.WriteLine("SHA1: " + "Hello World!".ToSHA1());
+            Console.WriteLine();
+
+
+            // WebClient.cs
+            Console.WriteLine("Loading WebClient.cs examples...");
+            WebClient wc = new WebClient();
+            wc.SetForwarded("google.com");
+            wc.SetVia("bob.com"); // Does not show in rest example
+            string result = wc.Post("https://httpbin.org/anything", new List<string> { "postNameHere=postValueHere", "postNameHere2=postValueHere2" });
+            Console.WriteLine("Post Test: \n" + result);
             Console.ReadLine();
         }
     }
