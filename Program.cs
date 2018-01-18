@@ -14,7 +14,7 @@ namespace ReeCodeDemo
 
             // AreAllFactorsOf
             List<int> factorsList = new List<int>() { 2, 5, 10 };
-            Console.WriteLine("AreAllFactorsOf - Example 1: " + factorsList.AreAllFactorsOf(20)); // True
+            Console.WriteLine("AreAllFactorsOf - Example: " + factorsList.AreAllFactorsOf(20)); // True
 
             // ContainsAnyLettersFrom
             List<char> charListA = new List<char> { 'a', 'b', 'c' };
@@ -25,7 +25,7 @@ namespace ReeCodeDemo
 
             // Median
             List<double> medianList = new List<double>() { 1, 2, 3, 4, 5 };
-            Console.WriteLine("Median - Example 1: " + medianList.Median()); // 3
+            Console.WriteLine("Median - Example: " + medianList.Median()); // 3
             Console.WriteLine();
 
 
@@ -47,26 +47,37 @@ namespace ReeCodeDemo
             // Reverse
             string normalString = "This is a test";
             string reversedString = "tset a si sihT";
-            Console.WriteLine("Reverse - Example 1: " + (normalString.Reverse() == reversedString)); // True
+            Console.WriteLine("Reverse - Example: " + (normalString.Reverse() == reversedString)); // True
 
             // ToCharList
             string someString = "Hello World";
             List<char> charList = someString.ToCharList();
-            Console.WriteLine("ToCharList - Example 1: " + charList.Count); // 11
+            Console.WriteLine("ToCharList - Example: " + charList.Count); // 11
 
+            // RemoveUntil
+            string longString = "This is some data we don't need and a search point. Important Text Here";
+            Console.WriteLine("RemoveUntil - Example 1: " + longString.RemoveUntil("point. ", false)); // "point. Important Text Here"
+            Console.WriteLine("RemoveUntil - Example 2: " + longString.RemoveUntil("point. ", true)); // "Important Text Here"
+
+            // Mostly Cryptography stuff
             // ToBase64
-            Console.WriteLine("Base64Encode: " + "Hello World!!".ToBase64());
+            Console.WriteLine("Base64Encode - Example: " + "Hello World!!".ToBase64()); // SGVsbG8gV29ybGQhIQ==
 
             // FromBase64
-            Console.WriteLine("Base64Decode: " + "SGVsbG8gV29ybGQhIQ==".FromBase64()); // Hello World!!
+            Console.WriteLine("Base64Decode - Example: " + "SGVsbG8gV29ybGQhIQ==".FromBase64()); // Hello World!!
 
             // ToROT13
-            Console.WriteLine("ROT13: " + "Uryyb Jbeyq!".ToROT13()); // Hello World!
+            Console.WriteLine("ROT13 - Example: " + "Uryyb Jbeyq!".ToROT13()); // Hello World!
 
             // ToSHA1
-            Console.WriteLine("SHA1: " + "Hello World!".ToSHA1());
+            Console.WriteLine("SHA1 - Example: " + "Hello World!".ToSHA1()); // 2ef...
+
+            // ToSHA512 (The result is 128 characters long)
+            Console.WriteLine("SHA512 - Example: " + "Hello World!".ToSHA512()); // 861...
             Console.WriteLine();
 
+            Console.WriteLine("Press Enter to load the WebClient examples");
+            Console.ReadLine();
 
             // WebClient.cs
             Console.WriteLine("Loading WebClient.cs examples...");

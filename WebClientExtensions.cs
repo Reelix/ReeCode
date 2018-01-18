@@ -8,22 +8,22 @@ namespace ReeCode
     public static class WebClientExtensions
     {
         /// <summary>
-        /// Sets the Via header
-        /// </summary>
-        public static WebClient SetVia(this WebClient theWebClient, string via)
-        {
-            WebClient wc = theWebClient;
-            theWebClient.Headers["Via"] = via;
-            return wc;
-        }
-
-        /// <summary>
         /// Sets the Forwarded header
         /// </summary>
         public static WebClient SetForwarded(this WebClient theWebClient, string via)
         {
             WebClient wc = theWebClient;
             theWebClient.Headers["Forwarded"] = via;
+            return wc;
+        }
+
+        /// <summary>
+        /// Sets the Via header
+        /// </summary>
+        public static WebClient SetVia(this WebClient theWebClient, string via)
+        {
+            WebClient wc = theWebClient;
+            theWebClient.Headers["Via"] = via;
             return wc;
         }
 

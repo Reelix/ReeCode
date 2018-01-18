@@ -69,9 +69,23 @@ namespace ReeCode
         }
 
         /// <summary>
+        /// Removes all text from the start of the string until the search value
+        /// </summary>
+        /// <param name="tillEnd">Remove until the end of the search string</param>
+        /// <returns></returns>
+        public static string RemoveUntil(this string inputString, string searchString, bool tillEnd)
+        {
+            inputString = inputString.Remove(0, inputString.IndexOf(searchString));
+            if (tillEnd)
+            {
+                inputString = inputString.Remove(0, searchString.Length);
+            }
+            return inputString;
+        }
+
+        /// <summary>
         /// Converts a string to Base64
         /// </summary>
-        /// <param name="inputString"></param>
         public static string ToBase64(this string inputString)
         {
             var plainTextBytes = Encoding.UTF8.GetBytes(inputString);
@@ -81,18 +95,15 @@ namespace ReeCode
         /// <summary>
         /// Converts a Base64 encoded string to plain text
         /// </summary>
-        /// <param name="inputString"></param>
-        /// <returns></returns>
         public static string FromBase64(this string inputString)
         {
             var base64EncodedBytes = Convert.FromBase64String(inputString);
             return Encoding.UTF8.GetString(base64EncodedBytes);
         }
+
         /// <summary>
         /// Encodes a string with the ROT13 Cipher
         /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
         // Taken from https://www.dotnetperls.com/rot13
         public static string ToROT13(this string input)
         {
@@ -128,9 +139,21 @@ namespace ReeCode
             return new string(array);
         }
 
+        /// <summary>
+        /// Encodes a string with the SHA-1 hash function
+        /// </summary>
         public static string ToSHA1(this string input)
         {
             var hash = (new SHA1Managed()).ComputeHash(Encoding.UTF8.GetBytes(input));
+            return string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
+        }
+
+        /// <summary>
+        /// Encodes a string with the SHA-512 hash function
+        /// </summary>
+        public static string ToSHA512(this string input)
+        {
+            var hash = (new SHA512Managed()).ComputeHash(Encoding.UTF8.GetBytes(input));
             return string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
         }
     }
