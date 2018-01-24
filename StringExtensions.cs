@@ -110,7 +110,7 @@ namespace ReeCode
             char[] array = input.ToCharArray();
             for (int i = 0; i < array.Length; i++)
             {
-                int number = (int)array[i];
+                int number = array[i];
 
                 if (number >= 'a' && number <= 'z')
                 {
@@ -155,6 +155,49 @@ namespace ReeCode
         {
             var hash = (new SHA512Managed()).ComputeHash(Encoding.UTF8.GetBytes(input));
             return string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
+        }
+
+        /// <summary>
+        /// Decrypts a string encoded with the Vigenère cipher
+        /// </summary>
+        /// <param name="key">The decryption key</param>
+        // Taken From: https://www.programmingalgorithms.com/algorithm/vigenere-cipher
+        public static string VigenereDecrypt(this string inputString, string key)
+        {
+            for (int i = 0; i < key.Length; ++i)
+            {
+                if (!char.IsLetter(key[i]))
+                {
+                    return null; // Error
+                }
+            }
+
+            string output = string.Empty;
+            int nonAlphaCharCount = 0;
+
+            for (int i = 0; i < inputString.Length; ++i)
+            {
+                if (char.IsLetter(inputString[i]))
+                {
+                    bool cIsUpper = char.IsUpper(inputString[i]);
+                    char offset = cIsUpper ? 'A' : 'a';
+                    int keyIndex = (i - nonAlphaCharCount) % key.Length;
+                    int k = (cIsUpper ? char.ToUpper(key[keyIndex]) : char.ToLower(key[keyIndex])) - offset;
+                    k = -k;
+                    int a = ((inputString[i] + k) - offset);
+                    int b = 26;
+                    int m = (a % b + b) % b; // Note that C#'s % operator is actually NOT modulo, it's remainder (:|)
+                    char ch = (char)((m) + offset);
+                    output += ch;
+                }
+                else
+                {
+                    output += inputString[i];
+                    ++nonAlphaCharCount;
+                }
+            }
+
+            return output;
         }
     }
 }

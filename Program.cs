@@ -45,9 +45,8 @@ namespace ReeCodeDemo
             Console.WriteLine("IsAPangram - Example 2: " + isAPangram.IsAPangram()); // True
 
             // Reverse
-            string normalString = "This is a test";
-            string reversedString = "tset a si sihT";
-            Console.WriteLine("Reverse - Example: " + (normalString.Reverse() == reversedString)); // True
+            string reversedString = "dlroW olleH";
+            Console.WriteLine("Reverse - Example: " + reversedString.Reverse()); // Hello World
 
             // ToCharList
             string someString = "Hello World";
@@ -61,19 +60,22 @@ namespace ReeCodeDemo
 
             // Mostly Cryptography stuff
             // ToBase64
-            Console.WriteLine("Base64Encode - Example: " + "Hello World!!".ToBase64()); // SGVsbG8gV29ybGQhIQ==
+            Console.WriteLine("ToBase64 - Example: " + "Hello World!!".ToBase64()); // SGVsbG8gV29ybGQhIQ==
 
             // FromBase64
-            Console.WriteLine("Base64Decode - Example: " + "SGVsbG8gV29ybGQhIQ==".FromBase64()); // Hello World!!
+            Console.WriteLine("FromBase64 - Example: " + "SGVsbG8gV29ybGQhIQ==".FromBase64()); // Hello World!!
 
             // ToROT13
-            Console.WriteLine("ROT13 - Example: " + "Uryyb Jbeyq!".ToROT13()); // Hello World!
+            Console.WriteLine("ToROT13 - Example: " + "Uryyb Jbeyq!".ToROT13()); // Hello World!
 
             // ToSHA1
-            Console.WriteLine("SHA1 - Example: " + "Hello World!".ToSHA1()); // 2ef...
+            Console.WriteLine("ToSHA1 - Example: " + "Hello World!".ToSHA1()); // 2ef......871
 
-            // ToSHA512 (The result is 128 characters long)
-            Console.WriteLine("SHA512 - Example: " + "Hello World!".ToSHA512()); // 861...
+            // ToSHA512 (The result is 128 characters long and will likely overflow onto a 2nd display line)
+            Console.WriteLine("ToSHA512 - Example: " + "Hello World!".ToSHA512()); // 861......cc8
+
+            // VigenereDecrypt (Note: Key is case insensitive)
+            Console.WriteLine("VigenereDecrypt - Example: " + "Yipww Tfvpo".VigenereDecrypt("Reelix")); // Hello World
             Console.WriteLine();
 
             Console.WriteLine("Press Enter to load the WebClient examples");

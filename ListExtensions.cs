@@ -9,8 +9,6 @@ namespace ReeCode
         /// <summary>
         /// Checks if all values in the list are factors of a number
         /// </summary>
-        /// <param name="inputList"></param>
-        /// <param name="x"></param>
         /// <returns>True / False</returns>
         public static bool AreAllFactorsOf(this List<int> inputList, int x)
         {
@@ -27,8 +25,6 @@ namespace ReeCode
         /// <summary>
         /// Checks if a List contains any letters from another List
         /// </summary>
-        /// <param name="inputList"></param>
-        /// <param name="checkList"></param>
         /// <returns>True / False</returns>
         public static bool ContainsAnyLettersFrom(this List<char> inputList, List<char> checkList)
         {
