@@ -39,7 +39,7 @@ namespace ReeCode
                 foreach (string item in postValues)
                 {
                     string key = item.Split('=')[0];
-                    string value = item.Split('=')[1];
+                    string value = item.Remove(0, key.Length + 1);
                     postCollection.Add(key, value);
                 }
             }
