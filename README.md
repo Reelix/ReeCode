@@ -19,7 +19,9 @@ String Extension Methods
 - ToROT13() - Encodes a string with the [ROT13](https://en.wikipedia.org/wiki/ROT13) substitution cipher
 - ToSHA1() - Encodes a string with the [SHA-1](https://en.wikipedia.org/wiki/SHA-1) hash function
 - ToSHA512() - Encodes a string with the [SHA-512](https://en.wikipedia.org/wiki/SHA-512) hash function
-- VignereDecrypt(string key) - Decrypts a string encoded with the [Vigenère cipher](https://en.wikipedia.org/wiki/Vigenère_cipher)
+- VignereDecrypt(string key) - Decrypts a string encoded with the [VigenÃ¨re cipher](https://en.wikipedia.org/wiki/VigenÃ¨re_cipher)
+- ToCharArray() - Converts a string to a char[]
+- ToByteArray() - Converts a string to a byte[]
 
 WebClient Extension Methods
 ---------------------------
