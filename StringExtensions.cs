@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -8,7 +8,6 @@ namespace ReeCode
 {
     public static class StringExtensions
     {
-
         /// <summary>
         /// Checks if a string is a Palindrome
         /// </summary>
@@ -198,6 +197,32 @@ namespace ReeCode
             }
 
             return output;
+        }
+
+        /// <summary>
+        /// Converts a string to a Char Array
+        /// </summary>
+        /// <param name="inputString"></param>
+        /// <returns></returns>
+        public static char[] ToCharArray(this string inputString)
+        {
+            char[] chars = new char[inputString.Length];
+            for (int j = 0; j < inputString.Length; j++)
+            {
+                chars[j] = inputString[j];
+            }
+            return chars;
+        }
+
+        /// <summary>
+        /// Converts a string to a Byte Array
+        /// </summary>
+        /// <param name="inputString"></param>
+        /// <returns></returns>
+        public static byte[] ToByteArray(this string inputString)
+        {
+            byte[] byteArray = Encoding.ASCII.GetBytes(inputString);
+            return byteArray;
         }
     }
 }
