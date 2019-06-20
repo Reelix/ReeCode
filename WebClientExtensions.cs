@@ -28,6 +28,26 @@ namespace ReeCode
         }
 
         /// <summary>
+        /// Sets the Cookie
+        /// </summary>
+        public static WebClient SetCookie(this WebClient theWebClient, string cookie)
+        {
+            WebClient wc = theWebClient;
+            theWebClient.Headers["Cookie"] = cookie;
+            return wc;
+        }
+
+        /// <summary>
+        /// Sets the Content Type
+        /// </summary>
+        public static WebClient SetContentType(this WebClient theWebClient, string contentType)
+        {
+            WebClient wc = theWebClient;
+            theWebClient.Headers["Content-Type"] = contentType;
+            return wc;
+        }
+
+        /// <summary>
         /// Makes a WebClient POST request, and returns the result as a string
         /// </summary>
         public static string Post(this WebClient theWebClient, string URL, List<string> postValues)
@@ -43,7 +63,7 @@ namespace ReeCode
                     postCollection.Add(key, value);
                 }
             }
-            byte[] responseBytes = theWebClient.UploadValues(URL, "POST", postCollection);
+            byte[] responseBytes = theWebClient.UploadString((URL, "POST", postCollection);
             string responseString = Encoding.UTF8.GetString(responseBytes);
             return responseString;
         }
