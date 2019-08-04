@@ -27,4 +27,6 @@ WebClient Extension Methods
 ---------------------------
 - SetForwarded(string x) - Sets the Forwarded header to x
 - SetVia(string x) - Sets the Via header to x
-- Post(string URL, List<string> postValues) - An easy method to do POST requests - Returns a string
+- SetCookie(string x) - Sets the Cookie header to x
+- SetContentType(string x) - Sets the Content-Type header to x
+- Post(string URL, Dictionary&lt;string, string&gt; postValues) - An easy method to do POST requests - Returns a string
