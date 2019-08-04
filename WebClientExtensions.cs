@@ -50,20 +50,14 @@ namespace ReeCode
         /// <summary>
         /// Makes a WebClient POST request, and returns the result as a string
         /// </summary>
-        public static string Post(this WebClient theWebClient, string URL, List<string> postValues)
+        public static string Post(this WebClient theWebClient, string URL, Dictionary<string, string> postValues)
         {
             NameValueCollection postCollection = new NameValueCollection();
-
-            if (postValues != null)
+            foreach (var item in postValues)
             {
-                foreach (string item in postValues)
-                {
-                    string key = item.Split('=')[0];
-                    string value = item.Remove(0, key.Length + 1);
-                    postCollection.Add(key, value);
-                }
+                postCollection.Add(item.Key, item.Value);
             }
-            byte[] responseBytes = theWebClient.UploadString((URL, "POST", postCollection);
+            byte[] responseBytes = theWebClient.UploadValues(URL, "POST", postCollection);
             string responseString = Encoding.UTF8.GetString(responseBytes);
             return responseString;
         }
