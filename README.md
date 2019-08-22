@@ -13,7 +13,7 @@ String Extension Methods
 - IsAPangram() - Tells if a specific string is a [pangram](https://en.wikipedia.org/wiki/Pangram) - Returns a boolean
 - Reverse() - Reverses a string
 - ToCharList() - Converts a string to a List\<char\>
-- RemoveUntil(string searchString, bool tillEnd) - Removes all the characters from the start of a string up until the start (Or end) of the term term
+- RemoveUntil(string searchString, bool tillEnd) - Removes all the characters from the start of a string up until the start (Or end) of the search term
 - ToBase64() - Encodes  a string with [Base64](https://en.wikipedia.org/wiki/Base64)
 - FromBase64() - Decodes a Base64 encoded string
 - ToMD5() - Encodes a string with the [MD5](https://en.wikipedia.org/wiki/MD5) hash function
