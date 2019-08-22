@@ -101,6 +101,19 @@ namespace ReeCode
         }
 
         /// <summary>
+        /// Encodes a string with the MD5 hash function
+        /// </summary>
+        public static string ToMD5(this string input)
+        {
+            using (var cryptoProvider = new MD5CryptoServiceProvider())
+            {
+                var hash = cryptoProvider.ComputeHash(Encoding.UTF8.GetBytes(input));
+                cryptoProvider.Dispose();
+                return string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
+            }
+        }
+
+        /// <summary>
         /// Encodes a string with the ROT13 Cipher
         /// </summary>
         // Taken from https://www.dotnetperls.com/rot13
@@ -143,8 +156,12 @@ namespace ReeCode
         /// </summary>
         public static string ToSHA1(this string input)
         {
-            var hash = (new SHA1Managed()).ComputeHash(Encoding.UTF8.GetBytes(input));
-            return string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
+            using (var cryptoProvider = new SHA1Managed())
+            {
+                var hash = cryptoProvider.ComputeHash(Encoding.UTF8.GetBytes(input));
+                cryptoProvider.Dispose();
+                return string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
+            }
         }
 
         /// <summary>
@@ -152,8 +169,12 @@ namespace ReeCode
         /// </summary>
         public static string ToSHA512(this string input)
         {
-            var hash = (new SHA512Managed()).ComputeHash(Encoding.UTF8.GetBytes(input));
-            return string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
+            using (var cryptoProvider = new SHA512Managed())
+            {
+                var hash = cryptoProvider.ComputeHash(Encoding.UTF8.GetBytes(input));
+                cryptoProvider.Dispose();
+                return string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
+            }
         }
 
         /// <summary>
