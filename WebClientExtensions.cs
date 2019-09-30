@@ -75,14 +75,14 @@ namespace ReeCode
 
         /// <summary>
         /// <para>Makes a WebClient GET request, and returns the result as a string.</para>
-        /// <para>Similar to UploadString, but with better functionality :)</para>
+        /// <para>Similar to DownloadString, but with better functionality :)</para>
         /// </summary>
-        public static string Get(this WebClient theWebClient, string URL, Dictionary<string, string> postValues)
+        public static string Get(this WebClient theWebClient, string URL, Dictionary<string, string> urlParams)
         {
-            if (postValues.Any())
+            if (urlParams.Any())
             {
                 URL += "?";
-                foreach (var item in postValues)
+                foreach (var item in urlParams)
                 {
                     // HTML Entities?
                     URL += item.Key + "=" + item.Value + "&";

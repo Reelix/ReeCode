@@ -30,4 +30,6 @@ WebClient Extension Methods
 - SetVia(string x) - Sets the Via header to x
 - SetCookie(string x) - Sets the Cookie header to x
 - SetContentType(string x) - Sets the Content-Type header to x
+- Get(string URL, Dictionary&lt;string, string&gt; urlParams) - Similar to DownloadString with better support - Returns a string
 - Post(string URL, Dictionary&lt;string, string&gt; postValues) - An easy method to do POST requests - Returns a string
+- CookieAwareWebClient - An extension of WebClient itself that provides cookie persistence (Useful for retaining a PHPSESSID)
