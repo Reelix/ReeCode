@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
@@ -77,9 +77,11 @@ namespace ReeCode
         /// <para>Makes a WebClient GET request, and returns the result as a string.</para>
         /// <para>Similar to DownloadString, but with better functionality :)</para>
         /// </summary>
-        public static string Get(this WebClient theWebClient, string URL, Dictionary<string, string> urlParams)
+        public static string Get(this WebClient theWebClient, string URL, Dictionary<string, string> urlParams = null)
         {
-            if (urlParams.Any())
+            ServicePointManager.ServerCertificateValidationCallback = (a, b, c, d) => true;
+
+            if (urlParams != null && urlParams.Any())
             {
                 URL += "?";
                 foreach (var item in urlParams)
@@ -120,6 +122,8 @@ namespace ReeCode
         /// </summary>
         public static string Post(this WebClient theWebClient, string URL, Dictionary<string, string> postValues, bool isJSON = false)
         {
+            ServicePointManager.ServerCertificateValidationCallback = (a, b, c, d) => true;
+
             NameValueCollection postCollection = new NameValueCollection();
             foreach (var item in postValues)
             {
